@@ -1,0 +1,60 @@
+/* General Styles */
+
+body {
+  font-family: cursive;
+  background-color: #fefae0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header */
+h1 {
+  color: #4e944f;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Button */
+button {
+  padding: 12px 20px;
+  background-color: #4e944f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+button:hover {
+  background-color: #386641;
+}
+
+/* Pet Info Sections */
+h2, h3 {
+  color: #6c584c;
+  margin-top: 20px;
+}
+
+#petCount {
+  font-weight: bold;
+  color: #bc6c25;
+  font-size: 12px;
+}
+
+/* Pet List Styling */
+#petList {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+#petList li {
+  background-color: #faedcd;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #d4a373;
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
