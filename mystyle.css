@@ -58,3 +58,20 @@ h2, h3 {
   border-radius: 6px;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
+
+/*service page*/
+
+.service-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 15px;
+}
+
+.pic{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+/*media quaries*/
