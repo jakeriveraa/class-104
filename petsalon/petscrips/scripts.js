@@ -34,3 +34,13 @@ function showPets() {
     list.appendChild(li);
   }
 }
+
+$(document).ready(function () {
+  $("#darkModeToggle").click(function () {
+    $("body").toggleClass("dark-mode");
+    
+    // Change button text
+    const isDark = $("body").hasClass("dark-mode");
+    $(this).text(isDark ? "Light mode" : "Dark mode");
+  });
+});

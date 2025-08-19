@@ -1,12 +1,35 @@
+/* Light mode variables (default) */
+:root {
+  --bg-color: #fefae0;
+  --text-color: #333;
+  --header-color: #4e944f;
+  --button-bg: #4e944f;
+  --button-hover-bg: #386641;
+  --pet-bg: #faedcd;
+  --pet-border: #d4a373;
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --header-color: #a3d9a5;
+  --button-bg: #3a6b35;
+  --button-hover-bg: #264d26;
+  --pet-bg: #2a2a2a;
+  --pet-border: #555;
+}
+
 /* General Styles */
 
 body {
   font-family: cursive;
-  background-color: #fefae0;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   padding: 20px;
   text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header */
