@@ -1,43 +1,63 @@
-function Service(name,description,price) {
-    this.name = name;
-    this.description = description;
-    this.price = price;
+function Service(name, description, price) {
+  this.name = name;
+  this.description = description;
+  this.price = price;
 }
 
-//let service1 = new Service("bath", "includes shampoo and towel dry", 100)
+$(document).ready(function () {
+  // Hide the form initially
+  $("#serviceRegistration").hide();
 
-//console.log(Service)
+  // When any "book now" button is clicked
+  $(".service-container button").click(function () {
+    // Hide main content, show form
+    $("#mainContent").hide();
+    $("#serviceRegistration").show();
+  });
 
-$(document).ready(function (){
+  // When cancel button is clicked
+  $("#cancelButton").click(function () {
+    // Hide form, show main content
+    $("#serviceRegistration").hide();
+    $("#mainContent").show();
+  });
 
-    // the user clicked register services
-    // catch the click action to manipulate the information
+  // When the form is submitted
+  $("#serviceRegistration").submit(function (event) {
+    event.preventDefault();
 
-    // select the form by id using jQuery
-    $("#serviceRegistration").on("submit", function(e) {
-        e.preventDefault();
-        // get the values - using jQuery
-        const serviceName = $("#serviceName").val();
-        const serviceDescription = $("#serviceDescription").val();
-        const servicePrice = $("#servicePrice").val();
+    var serviceName = $("#serviceName").val();
+    var serviceDescription = $("#serviceDescription").val();
+    var servicePrice = parseFloat($("#servicePrice").val());
 
-        // conferm we are retrieving the values
-        console.log(`${serviceName}, ${serviceDescription}, ${servicePrice}`)
+    if (serviceName === "" || serviceDescription === "" || servicePrice <= 0 || isNaN(servicePrice)) {
+      alert("Please fill all the fields and enter a valid price more than 0!");
+      return;
+    }
 
-        // validate the values
-        if (!serviceName || !serviceDescription || servicePrice <=0) {
-            // alert the user this is not valid data
-            alert("All fields are required and price must be greater than 0");
-            // assignment 1
-            
-            return;
-        } else {
-            // print/save the information
-            // notify the user
-            alert("information is being recieved");
-        }
+    var newService = new Service(serviceName, serviceDescription, servicePrice);
 
-        // clear the form
-        $("#serviceRegistration")[0].reset();
-    });
+    // Get old services from local storage or empty array
+    var services = localStorage.getItem("services");
+    if (services === null) {
+      services = [];
+    } else {
+      services = JSON.parse(services);
+    }
+
+    // Add new service to services list
+    services.push(newService);
+
+    // Save back to local storage
+    localStorage.setItem("services", JSON.stringify(services));
+
+    alert("Service saved!");
+
+    // Clear form
+    $("#serviceRegistration")[0].reset();
+
+    // Hide form and show main content
+    $("#serviceRegistration").hide();
+    $("#mainContent").show();
+  });
 });
