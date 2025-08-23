@@ -20,6 +20,12 @@ body.dark-mode {
   --pet-border: #555;
 }
 
+body.dark-mode #petList li {
+  background-color: var(--pet-bg);
+  border: 1px solid var(--pet-border);
+  color: var(--text-color);
+}
+
 /* General Styles */
 
 body {
@@ -101,4 +107,35 @@ h2, h3 {
   border-radius: 50%;
 }
 
-/*media quaries*/
+/* Media Queries */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .service-container {
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  .pic {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* For small phones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 14px 24px;
+    border-radius: 10px;
+  }
+
+  .pic {
+    width: 120px;
+    height: 120px;
+  }
+}

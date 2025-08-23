@@ -3,102 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pet Registration - Happy Paws Salon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="mystyle.css">
-  
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Happy Paws Salon</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="register.html">Registration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="services.html">Services</a>
-        </li>
-      </ul>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Happy Paws Salon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="register.html">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>🐾 Pet Registration Page 🐾</h1>
+        <p>Register your furry friend for our professional pet care services</p>
     </div>
-  </div>
-</nav>
 
-    <!-- the content of the page-->
-    <h1>🐾 Pet Registration Page 🐾</h1>
-
-        <form id="petRegistrationForm" class="m-5 border p-4 bg-light">
-
-          <div class="mb-3">
-            <label class="form-label">name</label>
-            <input class="form-control" type="text" name="petName">
-          </div>
-          
-          <div>
-            <label class="form-label">age</label>
-            <input class="form-control" type="number" id="petAge">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">breed</label>
-            <select class="form-select" name="petBreed" id="petBreed">
-              <option value="">select</option>
-              <option value="dog">dog</option>
-              <option value="cat">cat</option>
-            </select>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Gender</label>
-            <select class="form-select" name="petGender" id="petGender">
-              <option value="">select</option>
-              <option value="male">Male</option>
-              <option value="female">female</option>
-            </select>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Service</label>
-            <select class="form-select" name="petService" id="petService">
-              <option value="">select</option>
-              <option value="grooming">Grooming</option>
-              <option value="nail clipping">Nail Clipping</option>
-              <option value="daycare">Daycare</option>
-            </select>
-          </div>
-
-          <div class="d-flex justify-content-end">
-           <button onclick="registerPet(event)" type="submit" class="btn btn-primary">Register</button>
-           <button type="reset" class="btn btn-secondary">Reset</button>
-          </div>
-        </form>
-
-        <section class="container m-5">
-          <h2>registered pets</h2>
-          
-          <table id="petTable" class="table table-striped table-border">
-            <thead>
-              <th>name</th>
-              <th>age</th>
-            </thead>
-            
-            <tbody>
-                <!-- New Pet will be added here as a new row-->
-            </tbody>
-
-          </table>
+    <!-- Registration Form -->
+    <div class="form-section">
+        <h2>Pet Information</h2>
+        <p>Please fill out all the details about your pet below:</p>
         
-        </section>
+        <form id="petRegistrationForm" class="m-5 border p-4 bg-light">
+            <div class="mb-3">
+                <label class="form-label"><strong>Pet Name</strong></label>
+                <input class="form-control" type="text" name="petName" placeholder="Enter your pet's name" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label"><strong>Age</strong></label>
+                <input class="form-control" type="number" name="petAge" id="petAge" placeholder="Enter pet's age" min="0" max="30" required>
+            </div>
 
+            <div class="mb-3">
+                <label class="form-label"><strong>Breed/Type</strong></label>
+                <select class="form-select" name="petBreed" id="petBreed" required>
+                    <option value="">Please select</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><strong>Gender</strong></label>
+                <select class="form-select" name="petGender" id="petGender" required>
+                    <option value="">Please select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><strong>Service Needed</strong></label>
+                <select class="form-select" name="petService" id="petService" required>
+                    <option value="">Please select</option>
+                    <option value="grooming">Full Grooming ($45)</option>
+                    <option value="nail clipping">Nail Clipping ($15)</option>
+                    <option value="daycare">Pet Daycare ($30/day)</option>
+                </select>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button onclick="registerPet(event)" type="submit" class="btn btn-primary me-2">Register Pet</button>
+                <button type="reset" class="btn btn-secondary">Clear Form</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Registered Pets Section -->
+    <section class="container m-5">
+        <h2>📋 Registered Pets</h2>
+        <p>Here are all the pets currently registered with Happy Paws Salon:</p>
+        
+        <div class="table-responsive">
+            <table id="petTable" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Pet Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- New pets will be added here as new rows -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Additional Information -->
+    <div class="info-section">
+        <h3>Registration Information</h3>
+        <ul id="petList">
+            <li>All pets must be registered before their first appointment</li>
+            <li>Registration is free and takes just a few minutes</li>
+            <li>You can update pet information anytime by calling us</li>
+            <li>Emergency contact information will be collected during your first visit</li>
+        </ul>
+
+        <h3>Need Help?</h3>
+        <p><strong>Phone:</strong> (555) 123-PAWS</p>
+        <p><strong>Email:</strong> info@happypawssalon.com</p>
+        <p>Have questions about our services? <a href="services.html">View our services page</a></p>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="text-center mb-4">
+        <button id="darkModeToggle">Dark mode</button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script src="petsalon/petscrips/registration.js"></script>
+    <script src="petsalon/petscrips/scripts.js"></script>
 </body>
 </html>
